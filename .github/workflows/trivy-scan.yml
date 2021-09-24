@@ -1,13 +1,15 @@
-name: build
+name: "Trivy scan"
 on:
   push:
     branches:
       - master
   pull_request:
+  schedule:
+    - cron: '05 14 * * *'
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
